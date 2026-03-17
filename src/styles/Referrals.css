@@ -1,0 +1,367 @@
+/* Referrals Page */
+.referrals-content {
+  padding-top: 0;
+}
+
+.referrals-overview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  border-radius: 12px;
+}
+
+.overview-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.overview-label {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.overview-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.referrals-table-wrapper {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.referrals-message {
+  margin: 0 0 1rem;
+  padding: 0.75rem 0.875rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+}
+
+.referrals-message-error {
+  color: #b91c1c;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.referrals-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.referrals-table th,
+.referrals-table td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.referrals-table th {
+  font-weight: 600;
+  color: #6b7280;
+  background: #f9fafb;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.referrals-table th:first-child,
+.referrals-table td:first-child {
+  width: 48px;
+  padding-left: 1.25rem;
+}
+
+.referrals-table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.referrals-table tbody tr:hover {
+  background: #f3f4f6;
+}
+
+.referrals-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.referrals-table input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #3b82f6;
+  cursor: pointer;
+}
+
+/* Status pills */
+.referrals-table .status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border-radius: 9999px;
+}
+
+.referrals-table .status-pill.status-confirmed {
+  background: rgba(34, 197, 94, 0.12);
+  color: #16a34a;
+}
+
+.referrals-table .status-pill.status-confirmed .status-dot {
+  background: #22c55e;
+}
+
+.referrals-table .status-pill.status-pending {
+  background: rgba(245, 158, 11, 0.15);
+  color: #d97706;
+}
+
+.referrals-table .status-pill.status-pending .status-dot {
+  background: #f59e0b;
+}
+
+.referrals-table .status-pill.status-expired {
+  background: rgba(239, 68, 68, 0.12);
+  color: #dc2626;
+}
+
+.referrals-table .status-pill.status-expired .status-dot {
+  background: #ef4444;
+}
+
+.referrals-table .status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+/* Action column */
+.action-dash {
+  color: #9ca3af;
+  font-size: 1rem;
+}
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.action-btn:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
+
+.action-approve {
+  background: rgba(34, 197, 94, 0.15);
+  color: #16a34a;
+}
+
+.action-approve:hover {
+  background: rgba(34, 197, 94, 0.25);
+}
+
+.action-reject {
+  background: rgba(239, 68, 68, 0.15);
+  color: #dc2626;
+}
+
+.action-reject:hover {
+  background: rgba(239, 68, 68, 0.25);
+}
+
+.referrals-empty-state {
+  text-align: center;
+  color: #6b7280;
+  padding: 2rem 1rem;
+}
+
+.referrals-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0.25rem 0;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.referrals-results {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.referrals-pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.page-btn,
+.page-num {
+  border: none;
+  background: #f3f4f6;
+  color: #374151;
+  border-radius: 9999px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.page-btn:hover,
+.page-num:hover {
+  background: #e5e7eb;
+}
+
+.page-num.active {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.page-btn:disabled,
+.page-num:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 1024px) {
+  .referrals-overview {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .referrals-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .referrals-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .referrals-table {
+    min-width: 800px;
+  }
+}
+
+/* Confirm Modal */
+.confirm-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.confirm-modal {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  max-width: 420px;
+  width: 100%;
+  padding: 1.5rem;
+}
+
+.confirm-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.375rem;
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.confirm-modal-close:hover {
+  color: #1a1a2e;
+  background: #f3f4f6;
+}
+
+.confirm-modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin: 0 0 0.75rem;
+}
+
+.confirm-modal-message {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: #4b5563;
+  margin: 0 0 1.5rem;
+}
+
+.confirm-modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.confirm-modal-actions .btn-cancel {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #1a1a2e;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.confirm-modal-actions .btn-cancel:hover {
+  border-color: #9ca3af;
+  background: #f9fafb;
+}
+
+.confirm-modal-actions .btn-confirm {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.confirm-modal-actions .btn-confirm:hover {
+  opacity: 0.95;
+}
+
+.confirm-modal-actions .btn-expire {
+  background: #ef4444;
+}
+
+.confirm-modal-actions .btn-credit {
+  background: #3b82f6;
+}
