@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Header } from '../components/Header'
 import { ConfirmModal } from '../components/ConfirmModal'
+import { apiFetch } from '../utils/api'
 import '../styles/Referrals.css'
 
 const PAGE_LIMIT = 20
@@ -52,7 +53,7 @@ export function Referrals() {
       setFetchError('')
 
       try {
-        const response = await fetch(`/api/referrals?page=${pagination.page}&limit=${PAGE_LIMIT}`, {
+        const response = await apiFetch(`/api/referrals?page=${pagination.page}&limit=${PAGE_LIMIT}`, {
           headers: {
             Authorization: `Bearer ${adminToken}`,
           },

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Header } from '../components/Header'
 import { EditProfileModal } from '../components/EditProfileModal'
+import { apiFetch } from '../utils/api'
 import '../styles/Account.css'
 
 function formatDate(dateString) {
@@ -64,7 +65,7 @@ export function Account() {
       setError('')
 
       try {
-        const response = await fetch('/api/auth/admin/profile', {
+        const response = await apiFetch('/api/auth/admin/profile', {
           headers: {
             Authorization: `Bearer ${adminToken}`,
           },

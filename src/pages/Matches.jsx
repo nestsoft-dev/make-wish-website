@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { Header } from '../components/Header'
 import { NewMatchModal } from '../components/NewMatchModal'
 import { UpdateMatchStatusModal } from '../components/UpdateMatchStatusModal'
+import { apiFetch } from '../utils/api'
 import '../styles/Matches.css'
 
 const TABS = [
@@ -77,7 +78,7 @@ export function Matches() {
           params.set('status', activeTab)
         }
 
-        const response = await fetch(`/api/matches?${params.toString()}`)
+        const response = await apiFetch(`/api/matches?${params.toString()}`)
         const result = await response.json()
 
         if (!response.ok || !result?.success) {
@@ -163,7 +164,7 @@ export function Matches() {
     if (!matchId) return
 
     try {
-      const response = await fetch(`/api/admin/matches/${matchId}/status`, {
+      const response = await apiFetch(`/api/admin/matches/${matchId}/status`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Header } from '../components/Header'
 import { TransactionDetailsModal } from '../components/TransactionDetailsModal'
+import { apiFetch } from '../utils/api'
 import '../styles/Transactions.css'
 
 const PAGE_LIMIT = 20
@@ -95,7 +96,7 @@ export function Transactions() {
       setFetchError('')
 
       try {
-        const response = await fetch(`/api/transactions?page=${pagination.page}&limit=${PAGE_LIMIT}`, {
+        const response = await apiFetch(`/api/transactions?page=${pagination.page}&limit=${PAGE_LIMIT}`, {
           headers: {
             Authorization: `Bearer ${adminToken}`,
           },
@@ -202,7 +203,7 @@ export function Transactions() {
     setIsLoadingDetails(true)
 
     try {
-      const response = await fetch(`/api/transactions/${transaction.apiId}`, {
+      const response = await apiFetch(`/api/transactions/${transaction.apiId}`, {
         headers: {
           Authorization: `Bearer ${adminToken}`,
         },

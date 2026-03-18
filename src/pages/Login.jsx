@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { apiFetch } from '../utils/api'
 import '../styles/Login.css'
 
 const ADMIN_LOGIN_BODY = {
@@ -20,14 +21,14 @@ export function Login() {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch('/api/auth/admin/login', {
+      const response = await apiFetch('/api/auth/admin/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email: ADMIN_LOGIN_BODY.email,
-          password: ADMIN_LOGIN_BODY.password,
+          email,
+          password,
         }),
       })
 

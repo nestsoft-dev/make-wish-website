@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { apiFetch } from '../utils/api'
 
 const DEFAULT_FORM = {
   firstName: '',
@@ -90,7 +91,7 @@ export function EditProfileModal({ isOpen, onClose, initialData, onSaved }) {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch('/api/auth/admin/profile', {
+      const response = await apiFetch('/api/auth/admin/profile', {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

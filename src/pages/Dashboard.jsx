@@ -4,6 +4,7 @@ import { Header } from '../components/Header'
 import { SummaryCards } from '../components/SummaryCards'
 import { RevenueChart } from '../components/RevenueChart'
 import { RevenueBreakdown } from '../components/RevenueBreakdown'
+import { apiFetch } from '../utils/api'
 
 function formatCurrency(amount, currency = 'NGN') {
   return new Intl.NumberFormat('en-NG', {
@@ -34,7 +35,7 @@ export function Dashboard() {
       setError('')
 
       try {
-        const response = await fetch('/api/admin/dashboard/overview', {
+        const response = await apiFetch('/api/admin/dashboard/overview', {
           headers: {
             Authorization: `Bearer ${adminToken}`,
           },

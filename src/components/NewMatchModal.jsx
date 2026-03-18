@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { apiFetch } from '../utils/api'
 
 const DEFAULT_LEAGUES = ['Premier League']
 const STATUS_OPTIONS = [
@@ -46,8 +47,8 @@ export function NewMatchModal({ isOpen, onClose, onCreated }) {
 
       try {
         const [leaguesResponse, teamsResponse] = await Promise.all([
-          fetch('/api/matches/leagues'),
-          fetch('/api/matches/teams'),
+          apiFetch('/api/matches/leagues'),
+          apiFetch('/api/matches/teams'),
         ])
 
         const [leaguesResult, teamsResult] = await Promise.all([
@@ -174,7 +175,7 @@ export function NewMatchModal({ isOpen, onClose, onCreated }) {
     setIsSubmitting(true)
 
     try {
-      const response = await fetch('/api/admin/matches', {
+      const response = await apiFetch('/api/admin/matches', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

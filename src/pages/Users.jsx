@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Header } from '../components/Header'
+import { apiFetch } from '../utils/api'
 import '../styles/Users.css'
 
 const PAGE_LIMIT = 20
@@ -56,7 +57,7 @@ export function Users() {
       setFetchError('')
 
       try {
-        const response = await fetch(`/api/users?page=${pagination.page}&limit=${PAGE_LIMIT}`, {
+        const response = await apiFetch(`/api/users?page=${pagination.page}&limit=${PAGE_LIMIT}`, {
           headers: {
             Authorization: `Bearer ${adminToken}`,
           },

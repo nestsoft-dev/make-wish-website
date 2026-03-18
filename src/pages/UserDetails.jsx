@@ -5,6 +5,7 @@ import { TransactionDetailsModal } from '../components/TransactionDetailsModal'
 import { DeleteUserModal } from '../components/DeleteUserModal'
 import { DeleteUserReasonModal } from '../components/DeleteUserReasonModal'
 import { AccountDeletedModal } from '../components/AccountDeletedModal'
+import { apiFetch } from '../utils/api'
 import '../styles/UserDetails.css'
 
 const PAGE_LIMIT = 20
@@ -93,7 +94,7 @@ export function UserDetails() {
       setPageError('')
 
       try {
-        const response = await fetch(`/api/users/${id}`, {
+        const response = await apiFetch(`/api/users/${id}`, {
           headers: {
             Authorization: `Bearer ${adminToken}`,
           },
@@ -154,7 +155,7 @@ export function UserDetails() {
       setPageError('')
 
       try {
-        const response = await fetch(`/api/users/${id}/transactions?page=${pagination.page}&limit=${PAGE_LIMIT}`, {
+        const response = await apiFetch(`/api/users/${id}/transactions?page=${pagination.page}&limit=${PAGE_LIMIT}`, {
           headers: {
             Authorization: `Bearer ${adminToken}`,
           },
@@ -263,7 +264,7 @@ export function UserDetails() {
     setPageError('')
 
     try {
-      const response = await fetch(`/api/users/${id}`, {
+      const response = await apiFetch(`/api/users/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${adminToken}`,
@@ -316,7 +317,7 @@ export function UserDetails() {
     setDetailsError('')
 
     try {
-      const response = await fetch(`/api/users/${id}/transactions/${transaction.apiId}`, {
+      const response = await apiFetch(`/api/users/${id}/transactions/${transaction.apiId}`, {
         headers: {
           Authorization: `Bearer ${adminToken}`,
         },
